@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 
 namespace src.Stores
 {
@@ -12,7 +11,7 @@ namespace src.Stores
 
         public string Save(string data)
         {
-            _store.Add(data);
+            if (!_store.Contains(data)) _store.Add(data);
             return data;
         }
 
