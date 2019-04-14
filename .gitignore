@@ -1,0 +1,9 @@
+#tooling
+.idea/
+
+#dotnet
+*.user
+src/obj/
+src/bin
+test/obj/
+test/bin/
