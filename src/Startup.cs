@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Catcher.Stores;
+using Catcher.Stores.Mem;
 
 namespace Catcher
 {
@@ -21,7 +22,7 @@ namespace Catcher
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
-            services.AddSingleton<IStoreInMemory>(new MemoryStore());
+            services.AddSingleton<IStoreInMemory>(new SimpleListStore());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

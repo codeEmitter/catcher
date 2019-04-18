@@ -1,11 +1,9 @@
 using System.Collections.Generic;
 
-namespace Catcher.Stores
+namespace Catcher.Stores.Mem
 {
     
-    public interface IStoreInMemory : IStore {}
-    
-    public class MemoryStore : IStoreInMemory
+    public class SimpleListStore : IStoreInMemory
     {
         private readonly IList<string> _store = new List<string>();
 

@@ -7,4 +7,7 @@ namespace Catcher.Stores
         string Save(string data);
         IEnumerable<string> Read();
     }
+
+    public interface IStoreInMemory : IStore {}
+
 }

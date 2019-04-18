@@ -1,23 +1,25 @@
 using System.Linq;
-using NUnit.Framework;
 using Catcher.Stores;
+using Catcher.Stores.Mem;
+using NUnit.Framework;
 
-namespace test.Stores
+namespace test.Stores.Mem
 {
     [TestFixture]
-    public class MemoryStoreTests
+    public class SimpleListStoreTests
     {
         private IStore _target;
 
         [SetUp]
-        public void SetUp()
-        {
-            _target = new MemoryStore();
-        }
+        public void SetUp() => _target = new SimpleListStore();
 
         [Test]
-        public void CanSaveASingleUniqueValue() => 
-            Assert.AreEqual(_target.Save("testValue1"), "testValue1");
+        public void CanSaveASingleUniqueValue()
+        {
+            var val = "testValue1";
+            Assert.AreEqual(
+                _target.Save(val), val);
+        }
 
         [Test]
         public void SavesOnlyUniqueValues()
@@ -27,6 +29,5 @@ namespace test.Stores
             _target.Save(value);
             Assert.AreEqual(_target.Read().Count(), 1);
         }
-        
     }
 }

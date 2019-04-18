@@ -1,16 +1,16 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Catcher.Stores;
 
-namespace Catcher.Controllers.mem
+namespace Catcher.Controllers.Mem
 {
     
-    [Route("api/v1/catch/[controller]/mem")]
+    [Route("api/v1/catch/mem/[controller]")]
     [ApiController]
-    public class StringController : ControllerBase
+    public class SimpleListController : ControllerBase
     {
         private readonly IStore _store;
 
-        public StringController(IStoreInMemory store) => _store = store;
+        public SimpleListController(IStoreInMemory store) => _store = store;
 
         [HttpGet]
         public IActionResult Get() => Ok(_store.Read());
