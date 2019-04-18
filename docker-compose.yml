@@ -1,0 +1,10 @@
+version: "3.4"
+services:
+  catcher:
+    image: catcher_api
+    restart: unless-stopped
+    build:
+      context: .
+      target: release
+    ports:
+      - 5000:80
