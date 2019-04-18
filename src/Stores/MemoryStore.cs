@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace src.Stores
+namespace Catcher.Stores
 {
     
     public interface IStoreInMemory : IStore {}
@@ -15,9 +15,6 @@ namespace src.Stores
             return data;
         }
 
-        public IEnumerable<string> Read()
-        {
-            return _store;
-        }
+        public IEnumerable<string> Read() => _store;
     }
 }

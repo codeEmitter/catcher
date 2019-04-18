@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace src.Stores
+namespace Catcher.Stores
 {
     public interface IStore
     {
