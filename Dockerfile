@@ -1,3 +1,8 @@
+FROM microsoft/dotnet:sdk AS test
+WORKDIR /
+COPY . .
+RUN dotnet restore && dotnet test ./test/test.csproj
+
 FROM microsoft/dotnet:sdk AS build
 WORKDIR /src
 COPY src/ .
