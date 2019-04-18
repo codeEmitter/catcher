@@ -10,7 +10,7 @@ namespace Catcher.Controllers.mem
     {
         private readonly IStore _store;
 
-        public StringController(IStore store) => _store = store;
+        public StringController(IStoreInMemory store) => _store = store;
 
         [HttpGet]
         public IActionResult Get() => Ok(_store.Read());
