@@ -11,12 +11,13 @@ namespace test.Stores.Mem
         private IStore _target;
 
         [SetUp]
-        public void SetUp() => _target = new SimpleListStore();
+        public void SetUp() =>
+            _target = new SimpleListStore();
 
         [Test]
         public void CanSaveASingleUniqueValue()
         {
-            var val = "testValue1";
+            const string val = "testValue1";
             Assert.AreEqual(
                 _target.Save(val), val);
         }
@@ -28,6 +29,14 @@ namespace test.Stores.Mem
             _target.Save(value);
             _target.Save(value);
             Assert.AreEqual(_target.Read().Count(), 1);
+        }
+
+        [Test]
+        public void ClearRemovesAllEntriesAndReturnsTheNumberRemoved()
+        {
+            const string value = "testValue1";
+            _target.Save(value);
+            Assert.AreEqual(1, _target.Clear());
         }
     }
 }

@@ -14,5 +14,11 @@ namespace Catcher.Stores.Mem
         }
 
         public IEnumerable<string> Read() => _store;
+        public int Clear()
+        {
+            var cnt = _store.Count;
+            _store.Clear();
+            return cnt;
+        }
     }
 }

@@ -6,6 +6,7 @@ namespace Catcher.Stores
     {
         string Save(string data);
         IEnumerable<string> Read();
+        int Clear();
     }
 
     public interface IStoreInMemory : IStore {}

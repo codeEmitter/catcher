@@ -18,5 +18,9 @@ namespace Catcher.Controllers.Mem
         [HttpPost]
         public IActionResult Post([FromBody] string value) => 
             Created(Request.Path.Value, _store.Save(value));
+
+        [HttpDelete]
+        public IActionResult Delete() =>
+            Ok($"{_store.Clear()} items cleared.");
     }
 }
