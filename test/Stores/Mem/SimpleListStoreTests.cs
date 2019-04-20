@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using Catcher.Stores;
 using Catcher.Stores.Mem;
@@ -34,9 +35,17 @@ namespace test.Stores.Mem
         [Test]
         public void ClearRemovesAllEntriesAndReturnsTheNumberRemoved()
         {
-            const string value = "testValue1";
+            const string value = "testValue3";
             _target.Save(value);
             Assert.AreEqual(1, _target.Clear());
         }
+
+        [Test]
+        public void TimestampsAreAvailableForEachEntry()
+        {
+            _target.Save("testValue4");
+            Assert.AreEqual(_target.Read().Keys.First().GetType(), typeof(DateTime));
+        }
+
     }
 }

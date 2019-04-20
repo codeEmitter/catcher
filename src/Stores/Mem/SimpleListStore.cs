@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace Catcher.Stores.Mem
@@ -5,15 +6,16 @@ namespace Catcher.Stores.Mem
     
     public class SimpleListStore : IStoreInMemory
     {
-        private readonly IList<string> _store = new List<string>();
+        private readonly IDictionary<DateTime, string> _store = new Dictionary<DateTime, string>();
 
         public string Save(string data)
         {
-            if (!_store.Contains(data)) _store.Add(data);
+            if (!_store.Values.Contains(data)) _store.Add(DateTime.Now, data);
             return data;
         }
 
-        public IEnumerable<string> Read() => _store;
+        public IDictionary<DateTime, string> Read() => _store;
+
         public int Clear()
         {
             var cnt = _store.Count;

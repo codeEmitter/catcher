@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace Catcher.Stores
@@ -5,7 +6,7 @@ namespace Catcher.Stores
     public interface IStore
     {
         string Save(string data);
-        IEnumerable<string> Read();
+        IDictionary<DateTime, string> Read();
         int Clear();
     }
 
