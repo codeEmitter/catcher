@@ -1,0 +1,34 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: microsoft/dotnet:2.2-sdk
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+
+      - run:
+          name: Build And Test
+          command: dotnet test -l "trx;LogFileName=test-results.xml" -r ../reports/
+
+      - store_test_results:
+          path:  reports/test-results.xml
+
+      - store_artifacts:
+          path:  reports/test-results.xml
+
+      - run:
+          name: Where are the reports?
+          command:  ls -la reports/
+
+workflows:
+    version: 2
+    build_and_test:
+        jobs:
+        - build:
+            filters:
+              branches:
+                only:
+                - master
