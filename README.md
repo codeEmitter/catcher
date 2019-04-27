@@ -1,4 +1,5 @@
 [![CircleCI](https://circleci.com/gh/codeEmitter/catcher/tree/master.svg?style=svg)](https://circleci.com/gh/codeEmitter/catcher/tree/master)
+[![Twitter Follow](https://img.shields.io/twitter/follow/code_emitter.svg?style=social&label=Follow)](https://twitter.com/code_emitter)
 
 # CATCHER - C# Cookie Catcher Sample Code
 
