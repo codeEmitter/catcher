@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/codeEmitter/catcher/tree/master.svg?style=svg)](https://circleci.com/gh/codeEmitter/catcher/tree/master)
+
 # CATCHER - C# Cookie Catcher Sample Code
 
 Spin up a quick web server to demo, for example, potential XSS
